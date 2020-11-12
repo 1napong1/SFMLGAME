@@ -1,0 +1,48 @@
+#include<SFML/Graphics.hpp>
+using namespace sf;
+const int W = 800;
+const int H = 600;
+int main()
+{
+	RenderWindow app(VideoMode(W,H),"TEEEST");
+
+	Texture t1, t2;
+	t1.loadFromFile("test/char.jpg");
+	t2.loadFromFile("test/back.jpg");
+	
+
+	Sprite sPlayer(t1), sBackground(t2);
+	sPlayer.setTextureRect(IntRect(0, 0, 104, 217));
+	sPlayer.setOrigin(0, 0);
+	sPlayer.getPosition().y;
+
+
+	float x = 300 ,y = 300;
+
+	while (app.isOpen())
+	{
+		Event event;
+		while (app.pollEvent(event))
+		{
+			if (event.type == Event::Closed)
+				app.close();
+		}
+		if (Keyboard::isKeyPressed(Keyboard::A)) x -= 0.1;
+		if (Keyboard::isKeyPressed(Keyboard::D)) x += 0.1;
+		if (Keyboard::isKeyPressed(Keyboard::W)) y -= 0.1;
+		if (Keyboard::isKeyPressed(Keyboard::S)) y += 0.1;
+
+		if (x > W)x = 0;
+		if (x < 0)x = W;
+		if (y > H)y = 0;
+		if (y < 0)y = H;
+		sPlayer.setPosition(x, y);
+
+		app.clear();
+		app.draw(sBackground);
+		app.draw(sPlayer);
+		app.display();
+
+	}
+	
+}
