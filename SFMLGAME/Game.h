@@ -8,7 +8,7 @@ class Game
 private:
 
 	//Variables
-	sf::RenderWindow *window;
+	sf::RenderWindow* window;
 	sf::Event sfEvent;
 
 	sf::Clock dtClock;

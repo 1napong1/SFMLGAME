@@ -34,7 +34,7 @@ Game::~Game()
 		delete this->states.top();
 		this->states.pop();
 	}
-		
+
 
 }
 
@@ -91,7 +91,7 @@ void Game::update()
 		this->endApplication();
 		this->window->close();
 	}
-	
+
 	/*int sum = 0;
 	for (size_t i = 0;i < 30000000; i++)
 	{
@@ -121,5 +121,4 @@ void Game::run()
 		this->render();
 	}
 }
-
 
